@@ -1,0 +1,21 @@
+{
+    "sites": 
+        [
+            {
+                "nome": "Americanas",
+                "url": "https://www.americanas.com.br",
+                "seletores": {
+                    "idCampoBusca": "#h_search-input",
+                    "classGridItensBuscados": "product-grid-new__GridItem"
+                }
+            },
+            {
+                "nome": "Submarino",
+                "url": "https://www.submarino.com.br",
+                "seletores": {
+                    "idCampoBusca": "#h_search-input",
+                    "classGridItensBuscados": "product-grid-new__GridItem"
+                }
+            }
+        ]
+}
