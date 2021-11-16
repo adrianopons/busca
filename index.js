@@ -24,7 +24,7 @@ async function iniciarBusca(produtoBusca) {
     for (let idxSite = 0; idxSite < config.sites.length; idxSite++) {
         const site = config.sites[idxSite];
 
-        console.log(`Acessando site ${site.nome}`);
+        console.log(`Acessando o site ${site.nome}`);
         await page.goto(site.url);
         await page.waitForSelector(site.seletores.idCampoBusca);
 
