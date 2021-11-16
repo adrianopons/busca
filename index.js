@@ -1,6 +1,6 @@
-const puppeteer = require('puppeteer-extra')
-const StealthPlugin = require('puppeteer-extra-plugin-stealth')
-puppeteer.use(StealthPlugin())
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
 
 const config = require('./config.json');
 const puppeteerUtils = require('./utils/puppeteerUtils');
@@ -11,7 +11,7 @@ const bot = new TelegramBot(TOKEN, { polling: true });
 
 async function iniciarBusca(produtoBusca) {
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         ignoreHTTPSErrors: true,
         args: [`--window-size=1920,1080`],
         defaultViewport: {
@@ -60,11 +60,44 @@ async function iniciarBusca(produtoBusca) {
             console.log('Busca efetuada');
         } else {
             // send a message to the chat acknowledging receipt of their message
-            bot.sendMessage(chatId, 'Seja bem vindo ao bot para busca de preço. Para consultar o preço digite \*PRODUTO=XXXXXX*, onde XXXXXX é o produto que quer verificar o preço');
-        }
-        
+            const opts = {
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: 'Digite PRODUTO=PRODUTO_DA_BUSCA',
+                                    // we shall check for this value when we listen
+                                    // for "callback_query"
+                                callback_data: 'edit'
+                            }
+                        ]
+                    ]
+                }
+            };
 
+            bot.sendMessage(chatId, 'Seja bem vindo ao bot para busca de preço.', opts);
+        
+        }
     });
+
+
+    //Handle callback queries
+    // bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+    //   const action = callbackQuery.data;
+    //   const msg = callbackQuery.message;
+    //   const opts = {
+    //     chat_id: msg.chat.id,
+    //     message_id: msg.message_id,
+    //   };
+    //   let text;
+    
+    //   if (action === 'edit') {
+    //     text = `Produto: ${msg}`;
+    //   }
+    
+    //   bot.editMessageText(text, opts);
+    // });
+
 
     // bot.onText(/PRODUTO=/, (msg, match) => {
     //     // 'msg' is the received Message from Telegram
