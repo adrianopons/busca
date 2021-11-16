@@ -16,6 +16,22 @@
                     "idCampoBusca": "#h_search-input",
                     "classGridItensBuscados": "product-grid-new__GridItem"
                 }
+            },
+            {
+                "nome": "Shoptime",
+                "url": "https://www.shoptime.com.br",
+                "seletores": {
+                    "idCampoBusca": "#h_search-input",
+                    "classGridItensBuscados": "product-grid-new__GridItem"
+                }
+            },
+            {
+                "nome": "Extra",
+                "url": "https://www.extra.com.br/",
+                "seletores": {
+                    "idCampoBusca": "#strBusca",
+                    "classGridItensBuscados": "ProductsGrid__ProductsGridWrapper"
+                }
             }
         ]
 }
