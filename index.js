@@ -6,7 +6,7 @@ const config = require('./config.json');
 const puppeteerUtils = require('./utils/puppeteerUtils');
 
 const TelegramBot = require('node-telegram-bot-api');
-const TOKEN = '2132898383:AAGrzfRyEfgFnUX80_k4Kwi3TRixszmSVGM';
+const TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX';
 const bot = new TelegramBot(TOKEN, { polling: true });
 
 async function iniciarBusca(produtoBusca) {
